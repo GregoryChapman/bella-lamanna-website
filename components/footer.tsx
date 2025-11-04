@@ -45,7 +45,7 @@ export function Footer() {
           <p>
             Built by{" "}
             <a
-              href="https://chapmandigital.services"
+              href="https://chapmandigitalservices.com"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sky-400 hover:text-sky-300 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded"

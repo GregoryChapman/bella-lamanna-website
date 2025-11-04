@@ -1,8 +1,10 @@
 export const CREATOR = {
   name: "Bella Lamanna",
   handle: "@bella.lamannaa",
-  followers: "60.8K",
+  followers: "60.8K", // Instagram followers
   following: "1.3K",
+  tiktokFollowers: "969.7K",
+  instagramFollowers: "60.8K",
   location: "Guelph, Ontario",
   email: "Bella.lamannaa@gmail.com",
   bio: "UofG student & lifestyle creator sharing everyday adventures, wellness, and good vibes 🌿",
@@ -51,12 +53,12 @@ export const CREATOR = {
   // Or external URLs: "https://example.com/image.jpg"
   gallery: [
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1464822759844-d150ad6d6f31?w=600&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop", // Fixed: replaced broken image
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop",
     "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=600&h=600&fit=crop",
     "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=600&fit=crop",
     "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1464822759844-d150ad6d6f31?w=600&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=600&fit=crop", // Fixed: replaced broken image
     "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600&h=600&fit=crop",
   ],
   

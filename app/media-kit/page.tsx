@@ -48,12 +48,18 @@ export default function MediaKitPage() {
           <p className="text-xl text-gray-600 mb-8">{CREATOR.bio}</p>
 
           {/* Stats */}
-          <div className="flex justify-center gap-8 mb-8">
+          <div className="flex justify-center gap-8 mb-8 flex-wrap">
             <div className="text-center">
               <div className="font-outfit text-3xl font-bold bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent">
-                {CREATOR.followers}
+                {CREATOR.tiktokFollowers}
               </div>
-              <div className="text-sm text-gray-600">Followers</div>
+              <div className="text-sm text-gray-600">TikTok Followers</div>
+            </div>
+            <div className="text-center">
+              <div className="font-outfit text-3xl font-bold bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent">
+                {CREATOR.instagramFollowers}
+              </div>
+              <div className="text-sm text-gray-600">Instagram Followers</div>
             </div>
             <div className="text-center">
               <div className="font-outfit text-3xl font-bold bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent">
