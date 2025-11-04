@@ -19,7 +19,7 @@ export function LinkHub() {
           {/* Profile Image */}
           <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden ring-4 ring-white shadow-xl">
             <Image
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
+              src={CREATOR.profileImage}
               alt={CREATOR.name}
               fill
               className="object-cover"
