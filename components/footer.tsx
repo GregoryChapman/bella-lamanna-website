@@ -12,11 +12,23 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
-            <p className="font-outfit text-lg font-semibold text-white mb-2">
+            <p className="font-outfit text-lg font-semibold text-white mb-1">
               {CREATOR.name}
             </p>
+            <p className="text-sm text-gray-400 mb-1">
+              {CREATOR.title}
+            </p>
+            <p className="text-sm text-gray-400 mb-2">
+              {CREATOR.tagline}
+            </p>
             <p className="text-sm">
-              © {currentYear} {CREATOR.name}. All rights reserved.
+              <Icons.Mail className="w-4 h-4 inline-block mr-1" />
+              <a
+                href={`mailto:${CREATOR.email}`}
+                className="text-sky-400 hover:text-sky-300 transition-colors"
+              >
+                {CREATOR.email}
+              </a>
             </p>
           </div>
 
@@ -42,6 +54,9 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+          <p className="mb-2">
+            &copy; {currentYear} {CREATOR.name}. All rights reserved.
+          </p>
           <p>
             Built by{" "}
             <a
@@ -58,4 +73,3 @@ export function Footer() {
     </footer>
   );
 }
-

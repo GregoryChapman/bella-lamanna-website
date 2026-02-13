@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { CREATOR } from "@/config/creator";
 
 export function Nav() {
   const pathname = usePathname();
@@ -12,22 +13,26 @@ export function Nav() {
 
   const navItems = [
     { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/work-with-me", label: "Work With Me" },
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/timeline", label: "Timeline" },
+    { href: "/contact", label: "Contact" },
     { href: "/links", label: "Links" },
-    { href: "/media-kit", label: "Media Kit" },
   ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="font-outfit text-xl font-bold bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Bella Lamanna
+            {CREATOR.name}
           </Link>
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => {
@@ -99,4 +104,3 @@ export function Nav() {
     </nav>
   );
 }
-

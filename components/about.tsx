@@ -18,12 +18,10 @@ export function About() {
             About Me
           </h2>
           <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto">
-            I&apos;m Izzy — a UofG student and lifestyle creator sharing everyday adventures, 
-            wellness routines, and moments that make life brighter.
+            {CREATOR.bio}
           </p>
         </motion.div>
       </div>
     </section>
   );
 }
-

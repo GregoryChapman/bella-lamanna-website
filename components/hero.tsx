@@ -26,10 +26,15 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="font-outfit text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-4">
-            Hey, it&apos;s Izzy!
+          <h1 className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Hi! My name is {CREATOR.name}
           </h1>
-          <p className="font-outfit text-xl sm:text-2xl text-gray-700 mb-6">
+          <p className="text-lg sm:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto mb-4">
+            I&apos;m a {CREATOR.title.toLowerCase()} passionate about lifestyle, wellness,
+            student life, and inclusivity. I create honest, feel-good content that
+            inspires others to embrace who they are.
+          </p>
+          <p className="font-outfit text-lg sm:text-xl text-gray-600 mb-4">
             {CREATOR.tagline}
           </p>
           <div className="flex items-center justify-center gap-2 text-gray-600 mb-8">
@@ -45,22 +50,19 @@ export function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link
-            href="#contact"
+            href="/work-with-me"
             className="px-8 py-3 bg-gradient-to-r from-sky-400 to-fuchsia-500 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
           >
             Work With Me
           </Link>
           <Link
-            href={CREATOR.socials[0].href}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/about"
             className="px-8 py-3 bg-white/90 backdrop-blur-sm border-2 border-gray-200 text-gray-700 font-semibold rounded-2xl hover:border-sky-400 hover:text-sky-600 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
           >
-            Watch Latest
+            Learn More
           </Link>
         </motion.div>
       </div>
     </section>
   );
 }
-

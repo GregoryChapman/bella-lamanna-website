@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useState, FormEvent } from "react";
 import { Icons } from "@/lib/icons";
+import { CREATOR } from "@/config/creator";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -42,6 +43,14 @@ export function Contact() {
     }
   };
 
+  const inquiryTypes = [
+    "Brand Collaboration",
+    "UGC / Sponsored Content",
+    "Event / Appearance",
+    "Media Kit Request",
+    "General Inquiry",
+  ];
+
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-2xl mx-auto">
@@ -56,7 +65,8 @@ export function Contact() {
             Get In Touch
           </h2>
           <p className="text-lg text-gray-600">
-            Let&apos;s work together or just say hello!
+            Interested in working together? Fill out the form below and
+            we&apos;ll get back to you.
           </p>
         </motion.div>
 
@@ -101,18 +111,23 @@ export function Contact() {
 
             <div>
               <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                Subject
+                Inquiry Type
               </label>
-              <input
-                type="text"
+              <select
                 id="subject"
                 name="subject"
                 required
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all"
-                placeholder="What's this about?"
-              />
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all bg-white"
+              >
+                <option value="">Select an inquiry type</option>
+                {inquiryTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div>
@@ -127,7 +142,7 @@ export function Contact() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-sky-400 focus:border-transparent outline-none transition-all resize-none"
-                placeholder="Tell me about your project or just say hi!"
+                placeholder="Tell me about your project or collaboration idea..."
               />
             </div>
 
@@ -149,13 +164,29 @@ export function Contact() {
             >
               <Icons.Check className="w-5 h-5 text-green-600" />
               <p className="text-green-800">
-                Thanks! I&apos;ll get back to you soon 💌
+                Thanks! We&apos;ll get back to you soon.
               </p>
             </motion.div>
           )}
+
+          <div className="mt-12 p-6 bg-sky-50 rounded-2xl border border-sky-100 text-center">
+            <h3 className="font-outfit text-lg font-semibold text-gray-900 mb-2">
+              Request Media Kit
+            </h3>
+            <p className="text-gray-600 text-sm">
+              A full media kit with stats, demographics, and past collaborations
+              is available upon request. Select &quot;Media Kit Request&quot; above or email{" "}
+              <a
+                href={`mailto:${CREATOR.email}`}
+                className="text-sky-600 hover:text-sky-700 underline"
+              >
+                {CREATOR.email}
+              </a>
+              .
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
-
