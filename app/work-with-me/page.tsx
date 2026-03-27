@@ -215,7 +215,7 @@ export default function WorkWithMePage() {
             >
               <div className="relative w-72 sm:w-80 lg:w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-pink-100">
                 <Image
-                  src="/images/hero/hero.jpg"
+                  src="/images/work/workwithme5.jpg"
                   alt="Isabella Lamanna — content creator"
                   fill
                   priority

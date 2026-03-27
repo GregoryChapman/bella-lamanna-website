@@ -1,7 +1,11 @@
 "use client";
 
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ImageModal } from "@/components/image-modal";
+
+// ─── Image data ───────────────────────────────────────────────────────────────
 
 const aboutmeImages = [
   "/images/about/aboutme20.jpg",
@@ -34,6 +38,8 @@ const perspectiveImages = [
   "/images/about/perspective52.jpg",
 ];
 
+// ─── Helpers ──────────────────────────────────────────────────────────────────
+
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 } as const,
@@ -41,48 +47,80 @@ const fadeUp = {
   transition: { duration: 0.6 },
 };
 
+// ─── Clickable image grid ──────────────────────────────────────────────────────
+
 function ImageGrid({
   images,
   colsClass,
   aspectClass,
   sizes,
+  onImageClick,
 }: {
   images: string[];
   colsClass: string;
   aspectClass: string;
   sizes: string;
+  onImageClick: (index: number) => void;
 }) {
   return (
     <div className={`grid ${colsClass} gap-3 sm:gap-4`}>
       {images.map((src, i) => (
-        <motion.div
+        <motion.button
           key={src}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: i * 0.08 }}
-          className={`relative ${aspectClass} rounded-2xl overflow-hidden shadow-md`}
+          onClick={() => onImageClick(i)}
+          className={`relative ${aspectClass} rounded-2xl overflow-hidden shadow-md cursor-pointer group focus:outline-none focus:ring-2 focus:ring-pink-400`}
+          aria-label={`View photo ${i + 1} of ${images.length}`}
         >
           <Image
             src={src}
             alt=""
             fill
-            className="object-cover"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes={sizes}
           />
-        </motion.div>
+          {/* Hover overlay hint */}
+          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+        </motion.button>
       ))}
     </div>
   );
 }
 
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
 export default function AboutPage() {
+  // Single modal state — stores whichever image group is active
+  const [modalImages, setModalImages] = useState<string[]>([]);
+  const [modalIndex, setModalIndex] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = useCallback((images: string[], index: number) => {
+    setModalImages(images);
+    setModalIndex(index);
+    setModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => setModalOpen(false), []);
+
   return (
     <div className="min-h-screen bg-white">
+
+      {/* ── Modal (shared across all grids) ── */}
+      <ImageModal
+        images={modalImages}
+        initialIndex={modalIndex}
+        isOpen={modalOpen}
+        onClose={closeModal}
+      />
+
       {/* 1. Hero Banner */}
       <div className="relative h-[50vh] sm:h-[55vh] w-full overflow-hidden">
         <Image
-          src="/images/about/aboutme44.jpg"
+          src="/images/timeline/growth72.jpg"
           alt="Isabella Lamanna"
           fill
           className="object-cover object-center"
@@ -124,8 +162,9 @@ export default function AboutPage() {
           <ImageGrid
             images={aboutmeImages}
             colsClass="grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-            aspectClass="aspect-square"
+            aspectClass="aspect-[3/4]"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+            onImageClick={(i) => openModal(aboutmeImages, i)}
           />
         </div>
       </section>
@@ -160,6 +199,7 @@ export default function AboutPage() {
             colsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             aspectClass="aspect-[4/3]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            onImageClick={(i) => openModal(capturingMemoriesImages, i)}
           />
         </div>
       </section>
@@ -195,8 +235,9 @@ export default function AboutPage() {
           <ImageGrid
             images={realityImages}
             colsClass="grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
-            aspectClass="aspect-[4/3]"
+            aspectClass="aspect-[3/4]"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            onImageClick={(i) => openModal(realityImages, i)}
           />
         </div>
       </section>
@@ -241,6 +282,7 @@ export default function AboutPage() {
             colsClass="grid-cols-1 sm:grid-cols-3"
             aspectClass="aspect-[3/4]"
             sizes="(max-width: 640px) 100vw, 33vw"
+            onImageClick={(i) => openModal(perspectiveImages, i)}
           />
         </div>
       </section>
