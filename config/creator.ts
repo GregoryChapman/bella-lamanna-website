@@ -10,16 +10,17 @@ export const CREATOR = {
     "My mission is to create honest, feel-good content that inspires others to embrace who they are — showing up authentically and making space for everyone.",
 
   // Hero background image
-  heroImage: "/images/hero/IMG_5522.PNG",
+  heroImage: "/images/work/workwithme5.jpg",
 
   // Profile image for link hub
   profileImage: "/images/profile/IMG_5523.PNG",
 
   // Follower stats
-  followers: "60.8K",
+  followers: "82.4K",
   following: "1.3K",
-  tiktokFollowers: "969.7K",
-  instagramFollowers: "60.8K",
+  tiktokFollowers: "965.2K+",
+  tiktokLikes: "32.9M+",
+  instagramFollowers: "82.4K+",
 
   socials: [
     { label: "TikTok", href: "https://tiktok.com/@bella.lamanna", icon: "Music2" },

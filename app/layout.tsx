@@ -18,13 +18,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://isabellalmanna.com"),
+  metadataBase: new URL("https://bellalamanna.ca"),
   title: {
-    default: `${CREATOR.name} | ${CREATOR.title} — ${CREATOR.tagline}`,
-    template: `%s | ${CREATOR.name}`,
+    default: "Bella Lamanna | Lifestyle & Wellness Creator",
+    template: `%s | Bella Lamanna`,
   },
-  description: CREATOR.bio,
+  description:
+    "Lifestyle, wellness, and day-in-the-life content from Bella Lamanna. Brand partnerships, collaborations, and portfolio work.",
   keywords: [
+    "Bella Lamanna",
     "Isabella Lamanna",
     "Canadian content creator",
     "lifestyle creator",
@@ -35,32 +37,39 @@ export const metadata: Metadata = {
     "TikTok creator",
     "Instagram creator",
   ],
-  authors: [{ name: CREATOR.name }],
-  creator: CREATOR.name,
+  authors: [{ name: "Bella Lamanna" }],
+  creator: "Bella Lamanna",
   openGraph: {
-    title: `${CREATOR.name} | ${CREATOR.title}`,
-    description: CREATOR.mission,
+    title: "Bella Lamanna | Lifestyle & Wellness Creator",
+    description:
+      "Lifestyle, wellness, and day-in-the-life content from Bella Lamanna. Brand partnerships, collaborations, and portfolio work.",
     type: "website",
     locale: "en_CA",
-    siteName: CREATOR.name,
+    url: "https://bellalamanna.ca",
+    siteName: "Bella Lamanna",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${CREATOR.name} — ${CREATOR.title}`,
+        alt: "Bella Lamanna — Lifestyle & Wellness Creator",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${CREATOR.name} | ${CREATOR.title}`,
-    description: CREATOR.mission,
+    title: "Bella Lamanna | Lifestyle & Wellness Creator",
+    description:
+      "Lifestyle, wellness, and day-in-the-life content from Bella Lamanna. Brand partnerships, collaborations, and portfolio work.",
     images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 };
 

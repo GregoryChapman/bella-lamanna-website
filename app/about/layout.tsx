@@ -1,9 +1,15 @@
-import { CREATOR } from "@/config/creator";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: `Learn more about ${CREATOR.name} — a Canadian content creator passionate about lifestyle, wellness, student life, and inclusivity.`,
+  title: "About Bella Lamanna | Lifestyle Creator",
+  description:
+    "Get to know Bella Lamanna — her story, values, and passion for lifestyle, wellness, student life, and inclusivity.",
+  openGraph: {
+    title: "About Bella Lamanna | Lifestyle Creator",
+    description:
+      "Get to know Bella Lamanna — her story, values, and passion for lifestyle, wellness, student life, and inclusivity.",
+    url: "https://bellalamanna.ca/about",
+  },
 };
 
 export default function AboutLayout({

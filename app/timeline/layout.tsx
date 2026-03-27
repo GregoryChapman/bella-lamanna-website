@@ -1,9 +1,15 @@
-import { CREATOR } from "@/config/creator";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "My Story So Far",
-  description: `The journey of ${CREATOR.name} — from early TikTok days to becoming a multi-platform Canadian content creator.`,
+  title: "My Story | Bella Lamanna Timeline",
+  description:
+    "Follow Bella Lamanna's journey as a content creator — from posting just for fun to building a platform rooted in connection, kindness, and real life.",
+  openGraph: {
+    title: "My Story | Bella Lamanna Timeline",
+    description:
+      "Follow Bella Lamanna's journey as a content creator — from posting just for fun to building a platform rooted in connection, kindness, and real life.",
+    url: "https://bellalamanna.ca/timeline",
+  },
 };
 
 export default function TimelineLayout({

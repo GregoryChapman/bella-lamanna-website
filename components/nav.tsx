@@ -27,7 +27,7 @@ export function Nav() {
         <div className="flex justify-between items-center h-16">
           <Link
             href="/"
-            className="font-outfit text-xl font-bold bg-gradient-to-r from-sky-400 to-fuchsia-500 bg-clip-text text-transparent"
+            className="font-outfit text-xl font-bold bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             {CREATOR.name}
@@ -42,14 +42,14 @@ export function Nav() {
                   key={item.href}
                   href={item.href}
                   className={`relative font-medium transition-colors ${
-                    isActive ? "text-sky-600" : "text-gray-600 hover:text-sky-600"
+                    isActive ? "text-pink-600 font-semibold" : "text-gray-600 hover:text-pink-500"
                   }`}
                 >
                   {item.label}
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-400 to-fuchsia-500"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-400 to-rose-500"
                       initial={false}
                       transition={{ type: "spring", stiffness: 500, damping: 30 }}
                     />
@@ -62,7 +62,7 @@ export function Nav() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-gray-600 hover:text-sky-600 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 rounded"
+            className="md:hidden p-2 text-gray-600 hover:text-pink-500 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2 rounded"
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -89,7 +89,7 @@ export function Nav() {
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`block font-medium transition-colors ${
-                        isActive ? "text-sky-600" : "text-gray-600 hover:text-sky-600"
+                        isActive ? "text-pink-600 font-semibold" : "text-gray-600 hover:text-pink-500"
                       }`}
                     >
                       {item.label}

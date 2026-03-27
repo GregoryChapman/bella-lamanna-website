@@ -1,95 +1,110 @@
 import { NextRequest, NextResponse } from "next/server";
-import { CREATOR } from "@/config/creator";
+
+const TO_EMAIL = "bella.lamanna@gmail.com";
+const FROM_DISPLAY = "Isabella Lamanna Website <onboarding@resend.dev>";
 
 export async function POST(request: NextRequest) {
   try {
+    // ── Parse body ──────────────────────────────────────────────────────────
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, company, projectType, message } = body as {
+      name?: string;
+      email?: string;
+      company?: string;
+      projectType?: string;
+      message?: string;
+    };
 
-    if (!name || !email || !subject || !message) {
+    // ── Basic validation ─────────────────────────────────────────────────────
+    if (!name || !email || !message || !projectType) {
       return NextResponse.json(
-        { error: "All fields are required" },
+        { error: "Name, email, project type, and message are required." },
         { status: 400 }
       );
     }
 
-    // Check if using Formspree or Resend
-    const useFormspree = process.env.USE_FORMSPREE === "true";
-    const formspreeId = process.env.FORMSPREE_ID;
+    // ── Console log for dev / fallback ───────────────────────────────────────
+    console.log("[Contact Form Submission]", {
+      to: TO_EMAIL,
+      name,
+      email,
+      company: company || "—",
+      projectType,
+      message,
+    });
 
-    if (useFormspree && formspreeId) {
-      // Send to Formspree
-      const formspreeResponse = await fetch(`https://formspree.io/f/${formspreeId}`, {
+    // ── Resend (only runs when API key is present) ───────────────────────────
+    const resendApiKey = process.env.RESEND_API_KEY;
+
+    if (resendApiKey) {
+      const emailHtml = `
+        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #111;">
+          <h2 style="color: #ec4899; margin-bottom: 4px;">New Collaboration Inquiry</h2>
+          <p style="color: #6b7280; font-size: 14px; margin-top: 0;">Submitted via Isabella Lamanna's website</p>
+          <hr style="border: none; border-top: 1px solid #fce7f3; margin: 20px 0;" />
+
+          <table style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td style="padding: 8px 0; font-weight: 600; width: 140px; vertical-align: top; color: #374151;">Name</td>
+              <td style="padding: 8px 0; color: #111827;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; font-weight: 600; vertical-align: top; color: #374151;">Email</td>
+              <td style="padding: 8px 0; color: #111827;"><a href="mailto:${email}" style="color: #ec4899;">${email}</a></td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; font-weight: 600; vertical-align: top; color: #374151;">Company / Brand</td>
+              <td style="padding: 8px 0; color: #111827;">${company || "—"}</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px 0; font-weight: 600; vertical-align: top; color: #374151;">Project Type</td>
+              <td style="padding: 8px 0; color: #111827;">${projectType}</td>
+            </tr>
+          </table>
+
+          <hr style="border: none; border-top: 1px solid #fce7f3; margin: 20px 0;" />
+
+          <p style="font-weight: 600; color: #374151; margin-bottom: 8px;">Message</p>
+          <p style="color: #111827; line-height: 1.7; white-space: pre-wrap;">${message}</p>
+        </div>
+      `;
+
+      const resendRes = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
+          Authorization: `Bearer ${resendApiKey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
-          email,
-          subject,
-          message,
-          _replyto: email,
-        }),
-      });
-
-      if (!formspreeResponse.ok) {
-        throw new Error("Formspree submission failed");
-      }
-
-      return NextResponse.json({ success: true });
-    } else {
-      // Use Resend (requires RESEND_API_KEY)
-      const resendApiKey = process.env.RESEND_API_KEY;
-      
-      if (!resendApiKey) {
-        // Fallback: just log the email (in production, you'd want proper email handling)
-        console.log("Contact Form Submission:", {
-          to: CREATOR.email,
-          from: email,
-          subject: `[${CREATOR.name} Website] ${subject}`,
-          body: `From: ${name} (${email})\n\n${message}`,
-        });
-
-        return NextResponse.json({ 
-          success: true,
-          message: "Message received (email not configured)" 
-        });
-      }
-
-      const resendResponse = await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          "Authorization": `Bearer ${resendApiKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "Website Contact <noreply@example.com>", // Update with your domain
-          to: CREATOR.email,
+          from: FROM_DISPLAY,
+          to: TO_EMAIL,
           reply_to: email,
-          subject: `[${CREATOR.name} Website] ${subject}`,
-          html: `
-            <h2>New Contact Form Submission</h2>
-            <p><strong>From:</strong> ${name} (${email})</p>
-            <p><strong>Subject:</strong> ${subject}</p>
-            <hr>
-            <p>${message.replace(/\n/g, "<br>")}</p>
-          `,
+          subject: `[Website Inquiry] ${projectType} — ${name}${company ? ` @ ${company}` : ""}`,
+          html: emailHtml,
         }),
       });
 
-      if (!resendResponse.ok) {
-        throw new Error("Resend submission failed");
+      if (!resendRes.ok) {
+        const err = await resendRes.text();
+        console.error("[Resend error]", err);
+        throw new Error("Resend delivery failed");
       }
-
-      return NextResponse.json({ success: true });
+    } else {
+      // API key not yet configured — log only (safe for dev / pre-deploy)
+      console.warn(
+        "[Contact] RESEND_API_KEY not set — email logged to console only."
+      );
     }
+
+    return NextResponse.json({
+      success: true,
+      message: "Thank you for reaching out! I'll get back to you soon.",
+    });
   } catch (error) {
-    console.error("Contact form error:", error);
+    console.error("[Contact] Error:", error);
     return NextResponse.json(
-      { error: "Failed to send message" },
+      { error: "Something went wrong. Please try again or email directly." },
       { status: 500 }
     );
   }
 }
-
