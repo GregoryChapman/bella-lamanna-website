@@ -5,15 +5,13 @@ import { Icons, IconName } from "@/lib/icons";
 import Link from "next/link";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-center md:text-left">
             <p className="font-outfit text-lg font-semibold text-white mb-1">
-              {CREATOR.name}
+              &copy; {CREATOR.name}
             </p>
             <p className="text-sm text-gray-400 mb-1">
               {CREATOR.title}
@@ -22,10 +20,10 @@ export function Footer() {
               {CREATOR.tagline}
             </p>
             <p className="text-sm">
-              <Icons.Mail className="w-4 h-4 inline-block mr-1" />
+              <Icons.Mail className="w-4 h-4 inline-block mr-1" aria-hidden="true" />
               <a
                 href={`mailto:${CREATOR.email}`}
-                className="text-sky-400 hover:text-sky-300 transition-colors"
+                className="text-brand-pink hover:text-brand-pink-deep transition-colors"
               >
                 {CREATOR.email}
               </a>
@@ -43,10 +41,10 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded"
+                  className="text-gray-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-pink focus:ring-offset-2 focus:ring-offset-gray-900 rounded"
                   aria-label={social.label}
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-6 h-6" aria-hidden="true" />
                 </Link>
               );
             })}
@@ -54,16 +52,13 @@ export function Footer() {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
-          <p className="mb-2">
-            &copy; {currentYear} {CREATOR.name}. All rights reserved.
-          </p>
           <p>
             Built by{" "}
             <a
               href="https://chapmandigitalservices.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sky-400 hover:text-sky-300 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded"
+              className="text-brand-pink hover:text-brand-pink-deep transition-colors focus:outline-none focus:ring-2 focus:ring-brand-pink focus:ring-offset-2 focus:ring-offset-gray-900 rounded"
             >
               Chapman Digital Services
             </a>

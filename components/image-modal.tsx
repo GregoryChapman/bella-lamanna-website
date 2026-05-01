@@ -12,11 +12,12 @@ interface ImageModalProps {
   initialIndex: number;
   isOpen: boolean;
   onClose: () => void;
+  alt?: string;
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export function ImageModal({ images, initialIndex, isOpen, onClose }: ImageModalProps) {
+export function ImageModal({ images, initialIndex, isOpen, onClose, alt }: ImageModalProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
   // Sync internal index when a new gallery is opened
@@ -88,7 +89,7 @@ export function ImageModal({ images, initialIndex, isOpen, onClose }: ImageModal
                 >
                   <Image
                     src={images[currentIndex]}
-                    alt={`Photo ${currentIndex + 1} of ${images.length}`}
+                    alt={alt ?? `Isabella Lamanna — image ${currentIndex + 1} of ${images.length}`}
                     fill
                     className="object-contain"
                     sizes="(max-width: 768px) 95vw, 640px"
@@ -102,14 +103,14 @@ export function ImageModal({ images, initialIndex, isOpen, onClose }: ImageModal
                 <>
                   <button
                     onClick={prev}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-pink-400 z-10"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-pink z-10"
                     aria-label="Previous image"
                   >
                     <ChevronLeft className="w-5 h-5 text-gray-700" />
                   </button>
                   <button
                     onClick={next}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-pink-400 z-10"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-pink z-10"
                     aria-label="Next image"
                   >
                     <ChevronRight className="w-5 h-5 text-gray-700" />
@@ -133,7 +134,7 @@ export function ImageModal({ images, initialIndex, isOpen, onClose }: ImageModal
                     key={i}
                     onClick={() => setCurrentIndex(i)}
                     className={`w-1.5 h-1.5 rounded-full transition-all ${
-                      i === currentIndex ? "bg-pink-400 w-3" : "bg-white/30 hover:bg-white/60"
+                      i === currentIndex ? "bg-brand-pink w-3" : "bg-white/30 hover:bg-white/60"
                     }`}
                     aria-label={`Go to image ${i + 1}`}
                   />
@@ -144,7 +145,7 @@ export function ImageModal({ images, initialIndex, isOpen, onClose }: ImageModal
             {/* ── Close button — top right corner of panel ── */}
             <button
               onClick={onClose}
-              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-pink-50 transition-colors focus:outline-none focus:ring-2 focus:ring-pink-400 z-20"
+              className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 w-9 h-9 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-brand-pink/10 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-pink z-20"
               aria-label="Close image viewer"
             >
               <X className="w-4 h-4 text-gray-700" />

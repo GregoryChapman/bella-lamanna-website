@@ -1,8 +1,9 @@
-import { 
-  Music2, 
-  Instagram, 
-  Ghost, 
-  Link as LinkIcon, 
+import {
+  Music2,
+  Instagram,
+  Ghost,
+  Facebook,
+  Link as LinkIcon,
   Mail,
   MapPin,
   ArrowRight,
@@ -14,6 +15,7 @@ export const Icons = {
   Music2,
   Instagram,
   Ghost,
+  Facebook,
   Link: LinkIcon,
   Mail,
   MapPin,

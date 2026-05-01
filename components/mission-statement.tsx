@@ -12,7 +12,7 @@ export function MissionStatement() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-gradient-to-br from-sky-50 via-white to-fuchsia-50 rounded-2xl p-8 sm:p-12 border border-gray-100 shadow-sm"
+          className="bg-gradient-to-br from-brand-pink/10 via-white to-brand-pink-deep/10 rounded-2xl p-8 sm:p-12 border border-gray-100 shadow-sm"
         >
           <h2 className="font-outfit text-2xl sm:text-3xl font-bold text-gray-900 mb-4 text-center">
             My Mission

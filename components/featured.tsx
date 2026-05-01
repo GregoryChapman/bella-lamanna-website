@@ -39,7 +39,7 @@ export function Featured() {
                 href={post.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-offset-2"
+                className="block bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-pink focus:ring-offset-2"
               >
                 <div className="relative h-64 w-full">
                   <Image
@@ -55,7 +55,7 @@ export function Featured() {
                     {post.title}
                   </h3>
                   <p className="text-gray-600 mb-4">{post.subtitle}</p>
-                  <div className="flex items-center text-sky-600 font-medium group-hover:gap-2 transition-all">
+                  <div className="flex items-center text-brand-pink-deep font-medium group-hover:gap-2 transition-all">
                     View Post
                     <Icons.ArrowRight className="w-4 h-4 ml-1" />
                   </div>

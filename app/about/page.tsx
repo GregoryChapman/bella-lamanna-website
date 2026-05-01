@@ -8,7 +8,6 @@ import { ImageModal } from "@/components/image-modal";
 // ─── Image data ───────────────────────────────────────────────────────────────
 
 const aboutmeImages = [
-  "/images/about/aboutme20.jpg",
   "/images/about/aboutme25.png",
   "/images/about/aboutme37.png",
   "/images/about/aboutme44.jpg",
@@ -51,12 +50,14 @@ const fadeUp = {
 
 function ImageGrid({
   images,
+  alt,
   colsClass,
   aspectClass,
   sizes,
   onImageClick,
 }: {
   images: string[];
+  alt: string;
   colsClass: string;
   aspectClass: string;
   sizes: string;
@@ -72,12 +73,12 @@ function ImageGrid({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: i * 0.08 }}
           onClick={() => onImageClick(i)}
-          className={`relative ${aspectClass} rounded-2xl overflow-hidden shadow-md cursor-pointer group focus:outline-none focus:ring-2 focus:ring-pink-400`}
+          className={`relative ${aspectClass} rounded-2xl overflow-hidden shadow-md cursor-pointer group focus:outline-none focus:ring-2 focus:ring-brand-pink`}
           aria-label={`View photo ${i + 1} of ${images.length}`}
         >
           <Image
             src={src}
-            alt=""
+            alt={alt}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes={sizes}
@@ -95,11 +96,13 @@ function ImageGrid({
 export default function AboutPage() {
   // Single modal state — stores whichever image group is active
   const [modalImages, setModalImages] = useState<string[]>([]);
+  const [modalAlt, setModalAlt] = useState<string>("");
   const [modalIndex, setModalIndex] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openModal = useCallback((images: string[], index: number) => {
+  const openModal = useCallback((images: string[], alt: string, index: number) => {
     setModalImages(images);
+    setModalAlt(alt);
     setModalIndex(index);
     setModalOpen(true);
   }, []);
@@ -112,6 +115,7 @@ export default function AboutPage() {
       {/* ── Modal (shared across all grids) ── */}
       <ImageModal
         images={modalImages}
+        alt={modalAlt}
         initialIndex={modalIndex}
         isOpen={modalOpen}
         onClose={closeModal}
@@ -120,14 +124,14 @@ export default function AboutPage() {
       {/* 1. Hero Banner */}
       <div className="relative h-[50vh] sm:h-[55vh] w-full overflow-hidden">
         <Image
-          src="/images/timeline/growth72.jpg"
-          alt="Isabella Lamanna"
+          src="/images/about/hero.png"
+          alt="Isabella Lamanna, Canadian content creator"
           fill
           className="object-cover object-center"
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-pink-50/40 via-transparent to-white/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-pink/10 via-transparent to-white/90" />
         <div className="absolute bottom-0 left-0 right-0 pb-10 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -161,16 +165,17 @@ export default function AboutPage() {
         <div className="max-w-5xl mx-auto">
           <ImageGrid
             images={aboutmeImages}
-            colsClass="grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
+            alt="Isabella out with friends and family enjoying everyday life"
+            colsClass="grid-cols-2 sm:grid-cols-3 lg:grid-cols-3"
             aspectClass="aspect-[3/4]"
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            onImageClick={(i) => openModal(aboutmeImages, i)}
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 33vw"
+            onImageClick={(i) => openModal(aboutmeImages, "Isabella out with friends and family enjoying everyday life", i)}
           />
         </div>
       </section>
 
       {/* 4 & 5. Capturing Memories */}
-      <section className="bg-pink-50/60 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-brand-pink/10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-3xl mb-12">
             <motion.h2
@@ -196,10 +201,11 @@ export default function AboutPage() {
           </div>
           <ImageGrid
             images={capturingMemoriesImages}
+            alt="Isabella behind the camera capturing content"
             colsClass="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
             aspectClass="aspect-[4/3]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-            onImageClick={(i) => openModal(capturingMemoriesImages, i)}
+            onImageClick={(i) => openModal(capturingMemoriesImages, "Isabella behind the camera capturing content", i)}
           />
         </div>
       </section>
@@ -234,16 +240,17 @@ export default function AboutPage() {
           </div>
           <ImageGrid
             images={realityImages}
+            alt="Isabella in a candid, unfiltered everyday moment"
             colsClass="grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
             aspectClass="aspect-[3/4]"
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
-            onImageClick={(i) => openModal(realityImages, i)}
+            onImageClick={(i) => openModal(realityImages, "Isabella in a candid, unfiltered everyday moment", i)}
           />
         </div>
       </section>
 
       {/* 8 & 9. Life from a Different Perspective */}
-      <section className="bg-pink-50/60 py-20 px-4 sm:px-6 lg:px-8">
+      <section className="bg-brand-pink/10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="max-w-3xl mb-12">
             <motion.h2
@@ -279,10 +286,11 @@ export default function AboutPage() {
           </div>
           <ImageGrid
             images={perspectiveImages}
+            alt="Isabella, a little person, sharing her perspective on everyday life"
             colsClass="grid-cols-1 sm:grid-cols-3"
             aspectClass="aspect-[3/4]"
             sizes="(max-width: 640px) 100vw, 33vw"
-            onImageClick={(i) => openModal(perspectiveImages, i)}
+            onImageClick={(i) => openModal(perspectiveImages, "Isabella, a little person, sharing her perspective on everyday life", i)}
           />
         </div>
       </section>

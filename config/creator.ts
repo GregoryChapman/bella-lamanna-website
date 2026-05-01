@@ -29,7 +29,7 @@ export const CREATOR = {
     {
       label: "Facebook",
       href: "https://www.facebook.com/share/16rVazadtQ/?mibextid=wwXIfr",
-      icon: "Link",
+      icon: "Facebook",
     },
     { label: "Email", href: "mailto:teamsg@reignmakertalent.com", icon: "Mail" },
   ],
@@ -124,7 +124,9 @@ export const CREATOR = {
   ],
 
   theme: {
-    primary: "from-sky-400 to-fuchsia-500",
-    secondary: "from-lilac-400 to-pink-400",
+    primary: "brand-pink",
+    primaryDeep: "brand-pink-deep",
+    gradient: "from-brand-pink to-brand-pink-deep",
+    gradientSoft: "from-brand-pink/10 to-brand-pink-deep/5",
   },
 };

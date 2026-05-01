@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CREATOR } from "@/config/creator";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -11,13 +10,12 @@ import {
   ShoppingBag,
   CalendarDays,
   Gift,
-  Music2,
-  Instagram,
-  Eye,
   Heart,
   Utensils,
-  Megaphone,
+  Music2,
+  Video,
   CheckCircle2,
+  ArrowRight,
 } from "lucide-react";
 
 // ─── Data ────────────────────────────────────────────────────────────────────
@@ -27,65 +25,42 @@ const collaborationTypes = [
     icon: Star,
     title: "Sponsored Content",
     description:
-      "Dedicated TikTok videos and Instagram posts that feel native to my feed, crafted to resonate with my audience while highlighting your brand.",
+      "Dedicated videos and posts that fit my niche, made to resonate with my audience while highlighting your brand.",
   },
   {
     icon: Users,
     title: "Brand Ambassadorships",
     description:
-      "Long-term relationships where I become a genuine advocate for your brand — authentically weaving your product or service into my everyday content.",
+      "Long-term relationships where I become a genuine advocate for your brand, naturally and authentically integrating your product or service into my everyday content.",
   },
   {
     icon: CalendarDays,
     title: "Event Coverage & Appearances",
     description:
-      "On-site content creation and real-time social coverage for brand launches, activations, and experiential events.",
+      "Pre-event promotion, real-time social coverage, and post-event content creation for brand launches and experiential events.",
   },
   {
     icon: ShoppingBag,
     title: "Product Reviews & Unboxing",
     description:
-      "Honest, engaging reviews and unboxings that showcase your product in a fun, relatable way that drives genuine interest.",
-  },
-  {
-    icon: Megaphone,
-    title: "Product Launches & Campaigns",
-    description:
-      "Creative campaign content designed to build excitement and awareness around new products across my platforms.",
+      "Honest, engaging reviews and unboxings that showcase your product in a fun, relatable way.",
   },
   {
     icon: Gift,
     title: "PR & Gifted Opportunities",
     description:
-      "Organic, authentic coverage of gifted products integrated naturally into my content and daily life.",
+      "Gifted products will be posted on my Instagram and Facebook stories, and may be integrated naturally into my content.",
   },
 ];
 
 const contentForms = [
-  {
-    icon: Camera,
-    title: "Get ready with me & lifestyle integrations",
-  },
-  {
-    icon: ShoppingBag,
-    title: "Product testing and unboxing",
-  },
-  {
-    icon: Star,
-    title: "Shopping hauls (clothing & lifestyle)",
-  },
-  {
-    icon: Utensils,
-    title: "Cooking & meal prep content",
-  },
-  {
-    icon: Heart,
-    title: "Long-term partnerships & ambassadorships",
-  },
-  {
-    icon: CalendarDays,
-    title: "Event coverage",
-  },
+  { icon: Camera, title: "Get ready or unready with me" },
+  { icon: ShoppingBag, title: "Product testing and unboxing" },
+  { icon: Star, title: "Shopping hauls (clothing, beauty, household items, etc)" },
+  { icon: Utensils, title: "Cooking, baking, and meal prep content" },
+  { icon: Video, title: "Day in the life videos and vlogs" },
+  { icon: Music2, title: "Song promos" },
+  { icon: CalendarDays, title: "Event coverage" },
 ];
 
 const brandExpectations = [
@@ -95,56 +70,18 @@ const brandExpectations = [
   "A genuine connection with the audience",
 ];
 
-const workImages = [
-  "/images/work/workwithme5.jpg",
-  "/images/work/workwithme19.jpg",
-  "/images/work/workwithme30.jpg",
-  "/images/work/workwithme36.png",
-  "/images/work/workwithme47.jpg",
-  "/images/work/workwithme66.jpg",
+const audienceDemographics = [
+  "Primarily 18-34 age range",
+  "Lifestyle & wellness enthusiasts",
+  "Travel and adventure seekers",
+  "University students and young professionals",
 ];
 
-const stats = [
-  {
-    icon: Music2,
-    label: "TikTok Followers",
-    value: CREATOR.tiktokFollowers,
-    color: "text-pink-600",
-    bg: "bg-pink-50",
-    border: "border-pink-100",
-  },
-  {
-    icon: Instagram,
-    label: "Instagram Followers",
-    value: CREATOR.instagramFollowers,
-    color: "text-rose-600",
-    bg: "bg-rose-50",
-    border: "border-rose-100",
-  },
-  {
-    icon: Heart,
-    label: "TikTok Likes",
-    value: CREATOR.tiktokLikes,
-    color: "text-pink-500",
-    bg: "bg-pink-50",
-    border: "border-pink-100",
-  },
-  {
-    icon: Eye,
-    label: "Average Views",
-    value: "20K+",
-    color: "text-rose-500",
-    bg: "bg-rose-50",
-    border: "border-rose-100",
-  },
-  {
-    icon: Star,
-    label: "Engagement Rate",
-    value: "8%",
-    color: "text-pink-600",
-    bg: "bg-pink-50",
-    border: "border-pink-100",
-  },
+const audienceEngagement = [
+  "High engagement rates on lifestyle content",
+  "Strong community interaction",
+  "Authentic, relatable content style",
+  "Active in wellness and travel spaces",
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -163,7 +100,7 @@ export default function WorkWithMePage() {
     <div className="min-h-screen bg-white">
 
       {/* ── 1. Hero ─────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-pink-50 via-rose-50/40 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="bg-gradient-to-br from-brand-pink/10 via-brand-pink/5 to-white pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
@@ -174,7 +111,7 @@ export default function WorkWithMePage() {
               transition={{ duration: 0.7 }}
               className="text-center lg:text-left"
             >
-              <span className="inline-block px-4 py-1.5 bg-pink-100 text-pink-600 text-sm font-medium rounded-full mb-5">
+              <span className="inline-block px-4 py-1.5 bg-brand-pink/15 text-brand-pink-deep text-sm font-medium rounded-full mb-5">
                 Collaborations & Partnerships
               </span>
               <h1 className="font-outfit text-5xl sm:text-6xl font-bold text-gray-900 mb-6 leading-tight">
@@ -193,15 +130,9 @@ export default function WorkWithMePage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link
                   href="/contact"
-                  className="px-8 py-3.5 bg-gradient-to-r from-pink-400 to-rose-500 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
+                  className="px-8 py-3.5 bg-gradient-to-r from-brand-pink to-brand-pink-deep text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-pink focus:ring-offset-2"
                 >
                   Get in Touch
-                </Link>
-                <Link
-                  href="/media-kit"
-                  className="px-8 py-3.5 bg-white border-2 border-pink-200 text-pink-700 font-semibold rounded-2xl hover:border-pink-400 hover:bg-pink-50 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
-                >
-                  View Media Kit
                 </Link>
               </div>
             </motion.div>
@@ -213,10 +144,10 @@ export default function WorkWithMePage() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="flex justify-center lg:justify-end"
             >
-              <div className="relative w-72 sm:w-80 lg:w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-pink-100">
+              <div className="relative w-72 sm:w-80 lg:w-full max-w-sm aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-brand-pink/20">
                 <Image
                   src="/images/work/workwithme5.jpg"
-                  alt="Isabella Lamanna — content creator"
+                  alt="Isabella Lamanna ready to collaborate with brands"
                   fill
                   priority
                   quality={90}
@@ -249,10 +180,10 @@ export default function WorkWithMePage() {
                 <motion.div
                   key={item.title}
                   {...fadeUp(i * 0.08)}
-                  className="group p-7 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-pink-100 transition-all"
+                  className="group p-7 bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-pink/30 transition-all"
                 >
-                  <div className="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-pink-100 transition-colors">
-                    <Icon className="w-5 h-5 text-pink-500" />
+                  <div className="w-12 h-12 bg-brand-pink/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-brand-pink/20 transition-colors">
+                    <Icon className="w-5 h-5 text-brand-pink-deep" />
                   </div>
                   <h3 className="font-outfit text-lg font-semibold text-gray-900 mb-2">
                     {item.title}
@@ -268,7 +199,7 @@ export default function WorkWithMePage() {
       </section>
 
       {/* ── 3. Forms of Content I Deliver ───────────────────────────────── */}
-      <section className="bg-pink-50/50 py-24 px-4 sm:px-6 lg:px-8">
+      <section className="bg-brand-pink/5 py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <motion.div {...fadeUp()} className="text-center mb-14">
             <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -286,10 +217,10 @@ export default function WorkWithMePage() {
                 <motion.div
                   key={item.title}
                   {...fadeUp(i * 0.08)}
-                  className="group flex items-center gap-4 p-6 bg-white rounded-3xl border border-pink-100 shadow-sm hover:shadow-md hover:border-pink-200 transition-all"
+                  className="group flex items-center gap-4 p-6 bg-white rounded-3xl border border-brand-pink/20 shadow-sm hover:shadow-md hover:border-brand-pink/40 transition-all"
                 >
-                  <div className="w-11 h-11 shrink-0 bg-pink-50 rounded-2xl flex items-center justify-center group-hover:bg-pink-100 transition-colors">
-                    <Icon className="w-5 h-5 text-pink-500" />
+                  <div className="w-11 h-11 shrink-0 bg-brand-pink/10 rounded-2xl flex items-center justify-center group-hover:bg-brand-pink/20 transition-colors">
+                    <Icon className="w-5 h-5 text-brand-pink-deep" />
                   </div>
                   <p className="font-outfit text-base font-medium text-gray-800 leading-snug">
                     {item.title}
@@ -315,9 +246,9 @@ export default function WorkWithMePage() {
               <motion.div
                 key={item}
                 {...fadeUp(i * 0.08)}
-                className="flex items-start gap-4 p-6 bg-pink-50 rounded-3xl border border-pink-100"
+                className="flex items-start gap-4 p-6 bg-brand-pink/10 rounded-3xl border border-brand-pink/20"
               >
-                <CheckCircle2 className="w-6 h-6 text-pink-500 mt-0.5 shrink-0" />
+                <CheckCircle2 className="w-6 h-6 text-brand-pink-deep mt-0.5 shrink-0" />
                 <p className="text-gray-700 text-base leading-relaxed">{item}</p>
               </motion.div>
             ))}
@@ -325,95 +256,89 @@ export default function WorkWithMePage() {
         </div>
       </section>
 
-      {/* ── 5. Gallery ──────────────────────────────────────────────────── */}
-      <section className="bg-pink-50/50 py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <motion.div {...fadeUp()} className="text-center mb-14">
-            <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Content I Create
-            </h2>
-            <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              A glimpse at the kind of content I bring to every collaboration.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {workImages.map((src, i) => (
-              <motion.div
-                key={src}
-                {...fadeUp(i * 0.08)}
-                className="group relative aspect-[4/5] rounded-2xl overflow-hidden shadow-md cursor-pointer"
-              >
-                <Image
-                  src={src}
-                  alt={`Isabella Lamanna content ${i + 1}`}
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                {/* subtle overlay on hover */}
-                <div className="absolute inset-0 bg-pink-900/0 group-hover:bg-pink-900/10 transition-colors duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. Stats ────────────────────────────────────────────────────── */}
-      <section className="bg-white py-24 px-4 sm:px-6 lg:px-8">
+      {/* ── 5. Audience Snapshot ─────────────────────────────────────────── */}
+      <section className="bg-brand-pink/5 py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <motion.div {...fadeUp()} className="text-center mb-14">
             <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              My Reach
+              Audience Snapshot
             </h2>
             <p className="text-gray-500 text-lg max-w-xl mx-auto">
-              Real numbers, real engagement — a community that actually shows up.
+              Who&apos;s tuning in and how they show up.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {stats.map((stat, i) => {
-              const Icon = stat.icon;
-              return (
-                <motion.div
-                  key={stat.label}
-                  {...fadeUp(i * 0.1)}
-                  className={`${stat.bg} ${stat.border} border rounded-3xl p-6 text-center shadow-sm`}
-                >
-                  <div className="flex justify-center mb-3">
-                    <Icon className={`w-6 h-6 ${stat.color}`} />
-                  </div>
-                  <p className={`font-outfit text-3xl font-bold ${stat.color} mb-2`}>
-                    {stat.value}
-                  </p>
-                  <p className="text-xs font-semibold text-gray-500 leading-snug">
-                    {stat.label}
-                  </p>
-                </motion.div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              {...fadeUp(0.1)}
+              className="bg-white rounded-3xl border border-brand-pink/20 shadow-sm p-8"
+            >
+              <h3 className="font-outfit text-xl font-semibold text-gray-900 mb-4">
+                Demographics
+              </h3>
+              <div className="w-10 h-0.5 bg-brand-pink rounded-full mb-5" />
+              <ul className="space-y-3">
+                {audienceDemographics.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-gray-600">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-pink-deep shrink-0" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              {...fadeUp(0.2)}
+              className="bg-white rounded-3xl border border-brand-pink/20 shadow-sm p-8"
+            >
+              <h3 className="font-outfit text-xl font-semibold text-gray-900 mb-4">
+                Engagement
+              </h3>
+              <div className="w-10 h-0.5 bg-brand-pink rounded-full mb-5" />
+              <ul className="space-y-3">
+                {audienceEngagement.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-gray-600">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-brand-pink-deep shrink-0" />
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
       </section>
 
+      {/* ── 6. Content I Create — link to portfolio ─────────────────────── */}
+      <section className="bg-white py-24 px-4 sm:px-6 lg:px-8">
+        <motion.div {...fadeUp()} className="max-w-2xl mx-auto text-center">
+          <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5">
+            Content I Create
+          </h2>
+          <p className="text-gray-500 text-lg leading-relaxed mb-8">
+            See examples of recent collaborations and the kind of storytelling I bring to every project.
+          </p>
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-brand-pink to-brand-pink-deep text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-brand-pink focus:ring-offset-2"
+          >
+            See My Work
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
+      </section>
+
       {/* ── 7. Media Kit Note ───────────────────────────────────────────── */}
-      <section className="bg-pink-50/60 py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-brand-pink/10 py-16 px-4 sm:px-6 lg:px-8">
         <motion.div {...fadeUp()} className="max-w-2xl mx-auto text-center">
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
             I&apos;ve worked with brands across beauty, fashion, wellness, and lifestyle. For a full list of past
             collaborations and detailed analytics, request my media kit through the contact form.
           </p>
-          <Link
-            href="/media-kit"
-            className="inline-block mt-6 px-7 py-3 bg-white border-2 border-pink-200 text-pink-700 font-semibold rounded-2xl hover:border-pink-400 hover:bg-pink-50 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2"
-          >
-            View Media Kit
-          </Link>
         </motion.div>
       </section>
 
       {/* ── 8. CTA ──────────────────────────────────────────────────────── */}
-      <section className="bg-gradient-to-br from-pink-400 via-rose-400 to-pink-500 py-24 px-4 sm:px-6 lg:px-8">
+      <section className="bg-gradient-to-br from-brand-pink to-brand-pink-deep py-24 px-4 sm:px-6 lg:px-8">
         <motion.div
           {...fadeUp()}
           className="max-w-2xl mx-auto text-center"
@@ -421,12 +346,12 @@ export default function WorkWithMePage() {
           <h2 className="font-outfit text-4xl sm:text-5xl font-bold text-white mb-5">
             Start a Collaboration
           </h2>
-          <p className="text-pink-100 text-lg leading-relaxed mb-10">
+          <p className="text-white/90 text-lg leading-relaxed mb-10">
             If you&apos;re interested in working together, I would love to connect.
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-white text-pink-600 font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-pink-50 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-pink-500"
+            className="inline-block px-10 py-4 bg-white text-brand-pink-deep font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-brand-pink/5 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-pink-deep"
           >
             Contact Me
           </Link>

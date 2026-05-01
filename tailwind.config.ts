@@ -11,6 +11,8 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        "brand-pink": "#F08DB9",
+        "brand-pink-deep": "#ED77B4",
       },
       fontFamily: {
         outfit: ["var(--font-outfit)", "sans-serif"],

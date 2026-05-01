@@ -47,21 +47,12 @@ export const metadata: Metadata = {
     locale: "en_CA",
     url: "https://bellalamanna.ca",
     siteName: "Bella Lamanna",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Bella Lamanna — Lifestyle & Wellness Creator",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bella Lamanna | Lifestyle & Wellness Creator",
     description:
       "Lifestyle, wellness, and day-in-the-life content from Bella Lamanna. Brand partnerships, collaborations, and portfolio work.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
