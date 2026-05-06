@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { CREATOR } from "@/config/creator";
-import { Icons } from "@/lib/icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -25,18 +24,12 @@ export function Hero() {
             transition={{ duration: 0.7 }}
             className="order-2 lg:order-1 text-center lg:text-left"
           >
-            {/* Location badge */}
-            <div className="flex items-center justify-center lg:justify-start gap-1.5 text-brand-pink-deep mb-5">
-              <Icons.MapPin className="w-4 h-4" />
-              <span className="text-sm font-medium tracking-wide">{CREATOR.location}</span>
-            </div>
-
             <h1 className="font-outfit text-5xl sm:text-6xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight">
               {CREATOR.name}
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-              I&apos;m passionate about living life fully, finding the fun in the chaos, and encouraging you to do the same.
+              I&apos;m passionate about living life to the fullest, finding the fun in the chaos, and encouraging you to do the same.
             </p>
 
             {/* Category chips */}

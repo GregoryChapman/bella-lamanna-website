@@ -24,7 +24,7 @@ export function Nav() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "Who am I?" },
+    { href: "/about", label: "Who Am I?" },
     { href: "/work-with-me", label: "Work With Me" },
     { href: "/portfolio", label: "Portfolio" },
     { href: "/timeline", label: "My Story" },

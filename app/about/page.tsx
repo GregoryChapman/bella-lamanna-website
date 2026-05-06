@@ -24,10 +24,8 @@ const capturingMemoriesImages = [
 ];
 
 const realityImages = [
-  "/images/about/reality3.jpg",
   "/images/about/reality16.jpg",
   "/images/about/reality24.jpg",
-  "/images/about/reality53.jpg",
   "/images/about/reality76.jpg",
 ];
 
@@ -35,6 +33,24 @@ const perspectiveImages = [
   "/images/about/perspective2.png",
   "/images/about/perspective21.jpg",
   "/images/about/perspective52.jpg",
+];
+
+const beyondSchoolImages = [
+  "/images/timeline/school32.png",
+  "/images/timeline/beyond15.png",
+  "/images/timeline/beyond63.png",
+];
+
+const beyondLKImages = [
+  "/images/timeline/beyond4.png",
+  "/images/timeline/beyond14.jpg",
+  "/images/timeline/beyond32.jpg",
+  "/images/timeline/beyond38.jpg",
+  "/images/timeline/beyond57.jpg",
+  "/images/timeline/beyond62.png",
+  "/images/timeline/beyond67.jpg",
+  "/images/timeline/beyond75.jpg",
+  "/images/timeline/beyond78.jpg",
 ];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
@@ -139,7 +155,7 @@ export default function AboutPage() {
             transition={{ duration: 0.7 }}
             className="font-outfit text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900"
           >
-            Who am I?
+            Who Am I?
           </motion.h1>
         </div>
       </div>
@@ -241,9 +257,9 @@ export default function AboutPage() {
           <ImageGrid
             images={realityImages}
             alt="Isabella in a candid, unfiltered everyday moment"
-            colsClass="grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+            colsClass="grid-cols-1 sm:grid-cols-3"
             aspectClass="aspect-[3/4]"
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+            sizes="(max-width: 640px) 100vw, 33vw"
             onImageClick={(i) => openModal(realityImages, "Isabella in a candid, unfiltered everyday moment", i)}
           />
         </div>
@@ -292,6 +308,79 @@ export default function AboutPage() {
             sizes="(max-width: 640px) 100vw, 33vw"
             onImageClick={(i) => openModal(perspectiveImages, "Isabella, a little person, sharing her perspective on everyday life", i)}
           />
+        </div>
+      </section>
+
+      {/* 10 & 11. Beyond Social Media */}
+      <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl mb-12">
+            <motion.h2
+              {...fadeUp}
+              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
+            >
+              Beyond Social Media
+            </motion.h2>
+          </div>
+
+          {/* Group 1 — school / psychology */}
+          <div className="mb-16">
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl"
+            >
+              I&apos;m currently completing my undergraduate degree in Psychology and Neuroscience at the University of Guelph,
+              with the long-term goal of pursuing a master&apos;s degree and becoming a child psychologist or therapist.
+              Supporting children and adolescents through life&apos;s stresses and challenges is something I&apos;m deeply
+              passionate about, and it strongly influences how I show up online, with empathy, honesty, and encouragement.
+              In recent years, I have also worked with children of all ages and abilities, as an after-school program
+              coordinator, a day camp instructor and an overnight camp counsellor. All of these experiences have shaped me
+              into who I am today.
+            </motion.p>
+            <ImageGrid
+              images={beyondSchoolImages}
+              alt="Isabella at the University of Guelph and working with children"
+              colsClass="grid-cols-1 sm:grid-cols-3"
+              aspectClass="aspect-[3/4]"
+              sizes="(max-width: 640px) 100vw, 33vw"
+              onImageClick={(i) => openModal(beyondSchoolImages, "Isabella at the University of Guelph and working with children", i)}
+            />
+          </div>
+
+          {/* Group 2 — Little Kindness Project */}
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl"
+            >
+              In 2021, I founded <strong className="font-semibold text-gray-900">The Little Kindness Project</strong>, an
+              organization created to support and advocate for children with dwarfism. I initially mentored young children
+              with dwarfism, offering guidance, support, and a safe space to feel understood by someone who had lived similar
+              experiences. Through this experience, I realized that while mentorship made a difference, the root of the issue
+              often came from a lack of education, especially in school environments. Many instances of bullying stemmed from
+              misunderstanding rather than maliciousness. That realization led me to shift my focus toward education in a fun,
+              engaging, and approachable way. I created an educational PowerPoint presentation filled with photos and videos
+              to teach youth across Ontario about dwarfism, encouraging curiosity, understanding, and kindness rather than
+              judgment. The project has been an incredible success so far, and I&apos;m excited to continue growing it and
+              spreading a little kindness in our world. I have also been volunteering for my little people organizations in
+              Ontario forever now, and bonding with the children, while meeting lots of new people, is the reason I keep going
+              back. It brings a sense of community :)
+            </motion.p>
+            <ImageGrid
+              images={beyondLKImages}
+              alt="Isabella with children and youth at Little Kindness Project events"
+              colsClass="grid-cols-2 sm:grid-cols-3"
+              aspectClass="aspect-[3/4]"
+              sizes="(max-width: 640px) 50vw, 33vw"
+              onImageClick={(i) => openModal(beyondLKImages, "Isabella with children and youth at Little Kindness Project events", i)}
+            />
+          </div>
         </div>
       </section>
     </div>

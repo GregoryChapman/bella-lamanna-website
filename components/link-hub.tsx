@@ -5,15 +5,15 @@ import { CREATOR } from "@/config/creator";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Briefcase,
   Mail,
   Instagram,
   Music2,
   Ghost,
-  FileText,
+  Facebook,
   ArrowRight,
   Heart,
 } from "lucide-react";
+import { Icons } from "@/lib/icons";
 
 // ─── Link Data ────────────────────────────────────────────────────────────────
 
@@ -32,26 +32,26 @@ const mainLinks = [
   },
   {
     label: "Snapchat",
-    href: "https://snapchat.com/t/McGb9qW3",
+    href: "https://snapchat.com/t/6lxGmgh7",
     icon: Ghost,
     external: true,
   },
   {
-    label: "Email",
-    href: "mailto:bella.lamanna@gmail.com",
-    icon: Mail,
-    external: false,
+    label: "Facebook",
+    href: "https://www.facebook.com/share/16rVazadtQ/?mibextid=wwXIfr",
+    icon: Facebook,
+    external: true,
   },
   {
-    label: "Work With Me",
-    href: "/work-with-me",
-    icon: Briefcase,
-    external: false,
+    label: "YouTube",
+    href: "https://www.youtube.com/@IsabellaLamanna",
+    icon: Icons.YouTube,
+    external: true,
   },
   {
-    label: "Media Kit Request",
+    label: "Contact Me",
     href: "/contact",
-    icon: FileText,
+    icon: Mail,
     external: false,
   },
 ];
@@ -121,7 +121,7 @@ export function LinkHub() {
 
           {/* Bio */}
           <p className="text-sm text-gray-500 leading-relaxed max-w-xs mx-auto">
-            Lifestyle, wellness, student life, and documenting life along the way 🤍
+            Bits of Bella&apos;s Life
           </p>
         </motion.div>
 

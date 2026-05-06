@@ -21,13 +21,12 @@ const timelineSections = [
   },
   {
     era: "2020",
-    title: "TikTok, Community & COVID",
+    title: "TikTok in Lockdown",
     description:
       "When the COVID-19 pandemic began, I started posting publicly on TikTok as something fun to do while the world felt paused. Some of my videos randomly went viral, so I just… kept going.\n\nI shared TikTok dances and videos about what it's like living with dwarfism, meeting new people and making friends along the way.",
     alt: "Isabella creating TikTok content during the early pandemic",
     images: [
       "/images/timeline/tiktok50.png",
-      "/images/timeline/tiktok9.png",
       "/images/timeline/tiktok27.png",
       "/images/timeline/tiktok61.png",
     ],
@@ -41,8 +40,10 @@ const timelineSections = [
     images: [
       "/images/timeline/school10.jpg",
       "/images/timeline/school39.jpg",
-      "/images/timeline/school74.jpg",
       "/images/timeline/school77.jpg",
+      "/images/timeline/school1.jpg",
+      "/images/timeline/school2.jpg",
+      "/images/timeline/school3.jpg",
     ],
   },
   {
@@ -54,8 +55,10 @@ const timelineSections = [
     images: [
       "/images/timeline/growth12.jpg",
       "/images/timeline/growth34.jpg",
-      "/images/timeline/growth42.jpg",
       "/images/timeline/growth59.jpg",
+      "/images/timeline/growth1.jpg",
+      "/images/timeline/growth2.jpg",
+      "/images/timeline/growth3.jpg",
     ],
   },
   {
@@ -65,6 +68,7 @@ const timelineSections = [
       "In the spring of 2025, I returned to posting with a fresh mindset and began sharing my TikToks as Reels on Instagram and Facebook. I realized that I have a platform, not for numbers, but for connection. I wanted to take advantage and use it to spread kindness, encourage people to chase opportunities, and remind others (especially those of us in our 20s) to enjoy the journey, even when things feel uncertain.",
     alt: "Isabella returning to content creation with renewed purpose",
     images: [
+      "/images/timeline/comingback1.jpg",
       "/images/timeline/comingback6.jpg",
       "/images/timeline/comingback7.jpg",
       "/images/timeline/comingback17.jpg",
@@ -89,69 +93,11 @@ const timelineSections = [
       "/images/timeline/fun28.jpg",
       "/images/timeline/fun51.jpg",
       "/images/timeline/fun63.jpg",
+      "/images/timeline/fun1.jpg",
+      "/images/timeline/fun2.jpg",
     ],
   },
 ];
-
-/** Beyond Social Media — rendered as a full-width section below the timeline.
- *  Each group renders its paragraph followed by its own image grid, so school
- *  photos sit visually with the school/psychology paragraph. */
-const beyondSection = {
-  title: "Beyond Social Media",
-  groups: [
-    {
-      paragraph: (
-        <>
-          I&apos;m currently completing my undergraduate degree in Psychology and Neuroscience at the University of Guelph,
-          with the long-term goal of pursuing a master&apos;s degree and becoming a child psychologist or therapist.
-          Supporting children and adolescents through life&apos;s stresses and challenges is something I&apos;m deeply
-          passionate about, and it strongly influences how I show up online, with empathy, honesty, and encouragement.
-          In recent years, I have also worked with children of all ages and abilities, as an after-school program
-          coordinator, a day camp instructor and an overnight camp counsellor. All of these experiences have shaped me
-          into who I am today.
-        </>
-      ),
-      alt: "Isabella at the University of Guelph and working with children",
-      images: [
-        "/images/timeline/school32.png",
-        "/images/timeline/beyond15.png",
-        "/images/timeline/beyond63.png",
-      ],
-    },
-    {
-      paragraph: (
-        <>
-          In 2021, I founded <strong className="font-semibold text-gray-900">The Little Kindness Project</strong>, an
-          organization created to support and advocate for children with dwarfism. I initially mentored young children
-          with dwarfism, offering guidance, support, and a safe space to feel understood by someone who had lived similar
-          experiences. Through this experience, I realized that while mentorship made a difference, the root of the issue
-          often came from a lack of education, especially in school environments. Many instances of bullying stemmed from
-          misunderstanding rather than maliciousness. That realization led me to shift my focus toward education in a fun,
-          engaging, and approachable way. I created an educational PowerPoint presentation filled with photos and videos
-          to teach youth across Ontario about dwarfism, encouraging curiosity, understanding, and kindness rather than
-          judgment. The project has been an incredible success so far, and I&apos;m excited to continue growing it and
-          spreading a little kindness in our world. I have also been volunteering for my little people organizations in
-          Ontario forever now, and bonding with the children, while meeting lots of new people, is the reason I keep going
-          back. It brings a sense of community :)
-        </>
-      ),
-      alt: "Isabella with children and youth at Little Kindness Project events",
-      images: [
-        "/images/timeline/beyond4.png",
-        "/images/timeline/beyond13.png",
-        "/images/timeline/beyond14.jpg",
-        "/images/timeline/beyond32.jpg",
-        "/images/timeline/beyond8.jpg",
-        "/images/timeline/beyond38.jpg",
-        "/images/timeline/beyond57.jpg",
-        "/images/timeline/beyond62.png",
-        "/images/timeline/beyond67.jpg",
-        "/images/timeline/beyond75.jpg",
-        "/images/timeline/beyond78.jpg",
-      ],
-    },
-  ],
-};
 
 /** What This Is Really About — closing full-width section */
 const reallyAboutSection = {
@@ -162,6 +108,7 @@ const reallyAboutSection = {
   ],
   alt: "Isabella enjoying life and celebrating with friends and family",
   images: [
+    "/images/timeline/reallyabout1.jpg",
     "/images/timeline/reallyabout57.jpg",
     "/images/timeline/reallyabout67.jpg",
     "/images/timeline/reallyabout35.jpg",
@@ -405,47 +352,10 @@ export default function TimelinePage() {
         </div>
       </section>
 
-      {/* ── Beyond Social Media (full-width) ────────────────────────────── */}
-      <section className="bg-brand-pink/5 py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <motion.div {...fadeUp()} className="mb-10">
-            <span className="inline-block px-3 py-1 bg-white text-brand-pink-deep text-xs font-semibold rounded-full border border-brand-pink/20 mb-4">
-              Always
-            </span>
-            <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              {beyondSection.title}
-            </h2>
-            <div className="w-10 h-0.5 bg-brand-pink rounded-full mb-6" />
-          </motion.div>
-
-          <div className="space-y-12">
-            {beyondSection.groups.map((group, i) => (
-              <div key={i}>
-                <motion.p
-                  {...fadeUp(0.05 + i * 0.05)}
-                  className="text-gray-600 text-base leading-relaxed mb-6"
-                >
-                  {group.paragraph}
-                </motion.p>
-                <ImageGrid
-                  images={group.images}
-                  alt={group.alt}
-                  animDelay={0.1 + i * 0.05}
-                  onImageClick={(index) => openModal(group.images, group.alt, index)}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── What This Is Really About (full-width closing) ───────────────── */}
       <section className="bg-white py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div {...fadeUp()} className="mb-10">
-            <span className="inline-block px-3 py-1 bg-brand-pink/10 text-brand-pink-deep text-xs font-semibold rounded-full border border-brand-pink/20 mb-4">
-              Always
-            </span>
             <h2 className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               {reallyAboutSection.title}
             </h2>

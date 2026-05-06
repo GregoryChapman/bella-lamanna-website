@@ -44,6 +44,24 @@ const portfolioItems = [
     category: "Day in the Life",
     image: "/images/portfolio/dayinthelife.png",
   },
+  {
+    href: "https://www.instagram.com/p/DPCvOB0jRT4/",
+    caption: "Song promo collaboration",
+    category: "Brand Collaborations",
+    image: "/images/portfolio/songpromo.png",
+  },
+  {
+    href: "https://www.instagram.com/p/DNejGmvJ2G8/?img_index=15",
+    caption: "Behind the scenes from an event",
+    category: "Brand Collaborations",
+    image: "/images/portfolio/eventdump.png",
+  },
+  {
+    href: "https://www.instagram.com/p/DNouzdyN2_Q/",
+    caption: "LASSO Festival event coverage",
+    category: "Brand Collaborations",
+    image: "/images/portfolio/LASSO.png",
+  },
 ];
 
 const categoryTags = [

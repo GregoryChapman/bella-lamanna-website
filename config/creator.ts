@@ -10,7 +10,7 @@ export const CREATOR = {
     "My mission is to create honest, feel-good content that inspires others to embrace who they are — showing up authentically and making space for everyone.",
 
   // Hero background image
-  heroImage: "/images/work/workwithme5.jpg",
+  heroImage: "/images/hero/hero2.jpg",
 
   // Profile image for link hub
   profileImage: "/images/profile/IMG_5523.PNG",
@@ -25,13 +25,14 @@ export const CREATOR = {
   socials: [
     { label: "TikTok", href: "https://tiktok.com/@bella.lamanna", icon: "Music2" },
     { label: "Instagram", href: "https://instagram.com/Bella.lamannaa", icon: "Instagram" },
-    { label: "Snapchat", href: "https://snapchat.com/t/McGb9qW3", icon: "Ghost" },
+    { label: "Snapchat", href: "https://snapchat.com/t/6lxGmgh7", icon: "Ghost" },
     {
       label: "Facebook",
       href: "https://www.facebook.com/share/16rVazadtQ/?mibextid=wwXIfr",
       icon: "Facebook",
     },
     { label: "Email", href: "mailto:teamsg@reignmakertalent.com", icon: "Mail" },
+    { label: "YouTube", href: "https://www.youtube.com/@IsabellaLamanna", icon: "YouTube" },
   ],
 
   // Portfolio items
