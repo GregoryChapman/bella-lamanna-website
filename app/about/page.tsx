@@ -164,7 +164,7 @@ export default function AboutPage() {
       <section className="py-14 px-4 sm:px-6 lg:px-8">
         <motion.p
           {...fadeUp}
-          className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-700 leading-relaxed text-center"
+          className="max-w-3xl mx-auto text-lg sm:text-xl text-gray-700 leading-relaxed text-center"
         >
           I&apos;m Isabella, a girl who loves her amazing friends, huge family, good food,
           great company, travelling around the world, and making every day fun. You&apos;ll
@@ -193,10 +193,10 @@ export default function AboutPage() {
       {/* 4 & 5. Capturing Memories */}
       <section className="bg-brand-pink/10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mx-auto mb-12">
             <motion.h2
               {...fadeUp}
-              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
+              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5 text-center"
             >
               Capturing Memories
             </motion.h2>
@@ -229,10 +229,10 @@ export default function AboutPage() {
       {/* 6 & 7. Reality */}
       <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mx-auto mb-12">
             <motion.h2
               {...fadeUp}
-              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
+              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5 text-center"
             >
               Reality
             </motion.h2>
@@ -268,10 +268,10 @@ export default function AboutPage() {
       {/* 8 & 9. Life from a Different Perspective */}
       <section className="bg-brand-pink/10 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mx-auto mb-12">
             <motion.h2
               {...fadeUp}
-              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
+              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5 text-center"
             >
               Life from a Different Perspective
             </motion.h2>
@@ -314,10 +314,10 @@ export default function AboutPage() {
       {/* 10 & 11. Beyond Social Media */}
       <section className="bg-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          <div className="max-w-3xl mb-12">
+          <div className="max-w-3xl mx-auto mb-12">
             <motion.h2
               {...fadeUp}
-              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5"
+              className="font-outfit text-3xl sm:text-4xl font-bold text-gray-900 mb-5 text-center"
             >
               Beyond Social Media
             </motion.h2>
@@ -330,7 +330,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl"
+              className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto"
             >
               I&apos;m currently completing my undergraduate degree in Psychology and Neuroscience at the University of Guelph,
               with the long-term goal of pursuing a master&apos;s degree and becoming a child psychologist or therapist.
@@ -357,7 +357,7 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl"
+              className="text-lg text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto"
             >
               In 2021, I founded <strong className="font-semibold text-gray-900">The Little Kindness Project</strong>, an
               organization created to support and advocate for children with dwarfism. I initially mentored young children

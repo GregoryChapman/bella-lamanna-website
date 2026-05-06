@@ -210,7 +210,7 @@ export default function PortfolioPage() {
           </p>
           <Link
             href="/work-with-me"
-            className="inline-flex items-center gap-2 px-10 py-4 bg-white text-brand-pink-deep font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-brand-pink/5 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-pink-deep"
+            className="inline-flex items-center gap-2 px-10 py-4 bg-white text-brand-pink-deep font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-brand-pink-deep hover:text-white transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-pink-deep"
           >
             Work With Me
             <ArrowRight className="w-4 h-4" />

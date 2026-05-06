@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://bellalamanna.ca"),
   title: {
-    default: "Bella Lamanna | Lifestyle & Wellness Creator",
+    default: "Bella Lamanna | Bits of Bella's Life",
     template: `%s | Bella Lamanna`,
   },
   description:
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Bella Lamanna" }],
   creator: "Bella Lamanna",
   openGraph: {
-    title: "Bella Lamanna | Lifestyle & Wellness Creator",
+    title: "Bella Lamanna | Bits of Bella's Life",
     description:
       "Lifestyle, wellness, and day-in-the-life content from Bella Lamanna. Brand partnerships, collaborations, and portfolio work.",
     type: "website",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bella Lamanna | Lifestyle & Wellness Creator",
+    title: "Bella Lamanna | Bits of Bella's Life",
     description:
       "Lifestyle, wellness, and day-in-the-life content from Bella Lamanna. Brand partnerships, collaborations, and portfolio work.",
   },

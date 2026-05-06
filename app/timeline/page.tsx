@@ -152,7 +152,7 @@ function ImageGrid({
   return (
     <motion.div
       {...fadeUp(animDelay + 0.1)}
-      className="mt-5 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
+      className="mt-5 grid grid-cols-2 sm:grid-cols-3 gap-3"
     >
       {images.map((src, i) => (
         <motion.button
@@ -391,7 +391,7 @@ export default function TimelinePage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/work-with-me"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-pink-deep font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-brand-pink/5 transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-pink-deep"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-brand-pink-deep font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:bg-brand-pink-deep hover:text-white transition-colors duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-brand-pink-deep"
             >
               Work With Me
               <ArrowRight className="w-4 h-4" />
